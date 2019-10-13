@@ -1,0 +1,20 @@
+title New note in single page app
+
+note over Browser:
+new note "1234" is inserted to the form and button "submit" is pressed
+end note
+
+note over Browser:
+browser starts executing js-code that it got from the server when the page was first loaded
+Browser makes a new note in a Json
+Adds the new note to the note[] and rerenders the note array
+Sends the new note(in Json) to server:
+end note
+
+Browser->Server:HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over Server:
+adds the new note to the Data.json file
+end note
+
+Server->Browser: HTTP Response: {"message":"note created"}

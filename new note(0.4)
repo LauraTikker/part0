@@ -1,0 +1,27 @@
+title new note
+
+note over Browser:
+new note "1234" is inserted to the browser and button "submit" is pressed
+end note
+
+Browser->Server:HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note: note=1234
+Server->Browser: HTTP Response: Locaation /notes
+Browser->Server:HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+Server->Browser: HTML code
+Browser->Server:HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Server->Browser: main.css
+Browser->Server:HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Server->Browser: main.js
+
+note over Browser:
+browser starts executing js-code
+that requests JSON data from server 
+end note
+
+Browser->Server:HTTP GET https://fullstack-exampleapp.herokuapp.com/main.json
+Server->Browser: data.json
+
+note over Browser:
+browser executes the event handler
+that renders notes to display
+end note
